@@ -5,14 +5,12 @@ import com.qa.pages.ContactsPage;
 import com.qa.pages.HomePage;
 import com.qa.pages.LoginPage;
 import io.qameta.allure.Step;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class ContactsPageTest extends TestBase {
-    private static final Logger log = LoggerFactory.getLogger(ContactsPageTest.class);
     ContactsPageTest contactsPageTest;
     ContactsPage contactsPage;
     HomePage homePage;
