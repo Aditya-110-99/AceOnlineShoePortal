@@ -21,7 +21,7 @@ public class HomePage extends TestBase {
         PageFactory.initElements(driver, this);
     }
 
-    @Step("Verifying if the homepage title is visible")
+    @Step("Getting HomePage title")
     public String verifyHomePageTitle() {
         return driver.getTitle();
     }
@@ -37,6 +37,14 @@ public class HomePage extends TestBase {
         dealsSidebarBnt.click();
         return new DealsPage();
     }
+
+    @Step("Getting UserName")
+    public String verifyingUserName()
+    {
+        return userNameLabel.getText();
+    }
+
+
 
 
 }
