@@ -4,6 +4,7 @@ import com.qa.utiities.TestUtil;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.FileInputStream;
@@ -33,10 +34,19 @@ public class TestBase {
 
     public static void initialization() {
         String browserName = prop.getProperty("browser");
+        String headless=System.getProperty("headless");
         if (browserName.equals("chrome")) {
+            ChromeOptions options =   new ChromeOptions();
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
-        } else if (browserName.equals("firefox")) {
+            if (headless!=null)
+            {
+                options.addArguments("--headless");
+
+            }
+        }
+
+        else if (browserName.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         }
