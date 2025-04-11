@@ -1,0 +1,7 @@
+<suite name="COGMENTO CRM">
+    <test name="Cogmento CRM Application" >
+        <classes>
+            <class name="com.qa.testCases.HomePageTest"/>
+        </classes>
+    </test>
+</suite>
