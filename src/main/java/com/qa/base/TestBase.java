@@ -64,9 +64,9 @@ public class TestBase {
     @AfterSuite(alwaysRun = true)
     public static void env()
     {
-        String browserValue = System.getProperty("Browser", "Browser");
-        String moduleValue = System.getProperty("Module", "DefaultModule");
-        String executorValue = System.getProperty("Executor", "DefaultExecutor");
+        String browserValue = System.getProperty("Browser");
+        String moduleValue = System.getProperty("Module");
+        String executorValue = System.getProperty("Executor");
 
         Properties properties = new Properties();
         properties.setProperty("Browser",browserValue);
