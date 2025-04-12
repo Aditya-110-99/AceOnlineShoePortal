@@ -27,7 +27,7 @@
                     <version>3.5.3</version>
                     <configuration>
                         <suiteXmlFiles>
-                            <suiteXmlFiles>${suiteFile}$</suiteXmlFiles>
+                            <suiteXmlFiles>${suiteFile}</suiteXmlFiles>
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>
