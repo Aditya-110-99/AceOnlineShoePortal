@@ -35,18 +35,24 @@ public class TestBase {
 
     public static void initialization() {
         String browserName = System.getProperty("Browser");
-        String headless=System.getProperty("headless");
-        if (browserName.equalsIgnoreCase("chrome")) {
-            ChromeOptions options =   new ChromeOptions();
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-            if (headless!=null)
-            {
-                options.addArguments("--headless");
+        String headless = System.getProperty("headless");
 
-            }
+        if (browserName == null) {
+            browserName = prop.getProperty("browser");
         }
 
+        if (browserName.equalsIgnoreCase("chrome")) {
+            ChromeOptions options = new ChromeOptions();
+
+            if (headless != null && headless.equalsIgnoreCase("true")) {
+                options.addArguments("--headless");
+                options.addArguments("--disable-gpu"); // recommended for headless
+                options.addArguments("--window-size=1920,1080");
+            }
+
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver(options); // <<< use options!
+        }
         else if (browserName.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
