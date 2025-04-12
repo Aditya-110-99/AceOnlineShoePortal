@@ -36,7 +36,7 @@ public class TestBase {
     public static void initialization() {
         String browserName = System.getProperty("Browser");
         String headless=System.getProperty("headless");
-        if (browserName.equals("chrome")) {
+        if (browserName.equalsIgnoreCase("chrome")) {
             ChromeOptions options =   new ChromeOptions();
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
