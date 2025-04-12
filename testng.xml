@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/adity/IdeaProjects/QAAutoamtionFramework">
+        <classes>
+            <class name="com.qa.testCases.ContactsPageTest">
+                <methods>
+                    <include name="TC_ContactPage_001"/>
+                </methods>
+            </class>
+            <class name="com.qa.testCases.DealsPageTest">
+                <methods>
+                    <include name="TC_DealsPage_001"/>
+                </methods>
+            </class>
+            <class name="com.qa.testCases.HomePageTest">
+                <methods>
+                    <include name="TC_HomePage_001"/>
+                    <include name="TC_HomePage_002"/>
+                    <include name="TC_HomePage_003"/>
+                </methods>
+            </class>
+            <class name="com.qa.testCases.LoginPageTest">
+                <methods>
+                    <include name="TC_LoginPage_001"/>
+                    <include name="TC_LoginPage_002"/>
+                    <include name="TC_LoginPage_003"/>
+                    <include name="login"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

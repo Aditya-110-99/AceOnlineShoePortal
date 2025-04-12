@@ -34,7 +34,7 @@ public class TestBase {
     }
 
     public static void initialization() {
-        String browserName = System.getProperty("browser");
+        String browserName = System.getProperty("Browser");
         String headless=System.getProperty("headless");
         if (browserName.equals("chrome")) {
             ChromeOptions options =   new ChromeOptions();
@@ -64,9 +64,9 @@ public class TestBase {
     @AfterSuite(alwaysRun = true)
     public static void env()
     {
-        String browserValue = System.getProperty("Browser");
-        String moduleValue = System.getProperty("Module");
-        String executorValue =System.getProperty("Executor");
+        String browserValue = System.getProperty("Browser", "Browser");
+        String moduleValue = System.getProperty("Module", "DefaultModule");
+        String executorValue = System.getProperty("Executor", "DefaultExecutor");
 
         Properties properties = new Properties();
         properties.setProperty("Browser",browserValue);
