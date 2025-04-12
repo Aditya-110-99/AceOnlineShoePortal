@@ -6,11 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterSuite;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.sql.Time;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -33,7 +34,7 @@ public class TestBase {
     }
 
     public static void initialization() {
-        String browserName = prop.getProperty("browser");
+        String browserName = System.getProperty("browser");
         String headless=System.getProperty("headless");
         if (browserName.equals("chrome")) {
             ChromeOptions options =   new ChromeOptions();
@@ -59,5 +60,28 @@ public class TestBase {
 
     }
 
+
+    @AfterSuite(alwaysRun = true)
+    public static void env()
+    {
+        String browserValue = System.getProperty("Browser");
+        String moduleValue = System.getProperty("Module");
+        String executorValue =System.getProperty("Executor");
+
+        Properties properties = new Properties();
+        properties.setProperty("Browser",browserValue);
+        properties.setProperty("Module",moduleValue);
+        properties.setProperty("Executor",executorValue);
+
+
+        try(FileOutputStream fs = new FileOutputStream("Reports/environment.properties"))
+        {
+            properties.store(fs,"Environment Configuration");
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
 }
 
