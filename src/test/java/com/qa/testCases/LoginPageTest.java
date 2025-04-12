@@ -50,7 +50,7 @@ public class LoginPageTest extends TestBase {
 
     @Test(testName = "LoginPage_TC_004")
     @Step("Validating if the User is able to Login")
-    public void login() {
+    public void TC_LoginPage_004() {
         homepage = loginPage.login(prop.getProperty("email"), prop.getProperty("password"));
 
     }
